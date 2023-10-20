@@ -6,7 +6,7 @@ const useAxios = (url) => {
   const [state, setState] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = async (url=null) => {
     try {
       const response = await axios.get(url);
       const newData = {...response.data, id: uuid()};
@@ -31,4 +31,14 @@ export default useAxios;
 //   "https://deckofcardsapi.com/api/deck/new/draw/"    
 //   );
 //   setCards(cards => [...cards, { ...response.data, id: uuid() }]);
+// };
+
+
+
+
+// const addPokemon = async name => {
+//   const response = await axios.get(
+//     `https://pokeapi.co/api/v2/pokemon/${name}/`
+//   );
+//   setPokemon(pokemon => [...pokemon, { ...response.data, id: uuid() }]);
 // };
